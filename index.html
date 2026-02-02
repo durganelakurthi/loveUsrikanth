@@ -5,92 +5,110 @@
 <title>Valentine Proposal</title>
 <style>
 body {
-margin: 0;
-height: 100vh;
-display: flex;
-justify-content: center;
-align-items: center;
-background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .banner {
-background: white;
-padding: 50px 40px;
-border-radius: 25px;
-box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-text-align: center;
+    background: white;
+    padding: 50px 40px;
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
 }
 
 .banner h1 {
-color: #ff3366;
-font-size: 38px;
-margin-bottom: 10px;
+    color: #ff3366;
+    font-size: 38px;
+    margin-bottom: 10px;
 }
 
 .banner p {
-font-size: 24px;
-color: #444;
-margin-bottom: 30px;
+    font-size: 24px;
+    color: #444;
+    margin-bottom: 30px;
 }
 
 .buttons {
-display: flex;
-justify-content: center;
-gap: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
 }
 
 button {
-font-size: 20px;
-padding: 14px 32px;
-border: none;
-border-radius: 40px;
-cursor: pointer;
-transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-size: 18px; /* Slightly smaller to fit the long text */
+    padding: 14px 32px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .yes1 {
-background: #ff4d6d;
-color: white;
-box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
+    background: #ff4d6d;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 77, 109, 0.5);
 }
 
-.yes2 {
-background: #ff85a2;
-color: white;
-box-shadow: 0 8px 20px rgba(255, 133, 162, 0.5);
+/* Style for the "No" button that changes */
+.no-turned-yes {
+    background: #ff85a2;
+    color: white;
+    box-shadow: 0 8px 20px rgba(255, 133, 162, 0.5);
+    min-width: 120px;
 }
 
 button:hover {
-transform: scale(1.12) rotate(-2deg);
+    transform: scale(1.1);
 }
 
 #response {
-margin-top: 25px;
-font-size: 22px;
-font-weight: bold;
-color: #ff3366;
+    margin-top: 25px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #ff3366;
 }
 </style>
 </head>
 <body>
 
 <div class="banner">
-<h1>Srikath ❤️</h1>
-<p>Will you be my Valentine?</p>
+    <h1>Srikath ❤️</h1>
+    <p>Will you be my Valentine?</p>
 
-<div class="buttons">
-<button class="yes1" onclick="sayYes()">YES 💖</button>
-<button class="yes2" onclick="sayYes()">YES 😍</button>
-</div>
+    <div class="buttons">
+        <button class="yes1" onclick="sayYes()">YES 💖</button>
+        
+        <!-- The button that changes its text on mouseover -->
+        <button class="no-turned-yes" 
+                id="fakeNo" 
+                onmouseover="changeText()" 
+                onmouseout="resetText()" 
+                onclick="sayYes()">NO 😢</button>
+    </div>
 
-<div id="response"></div>
+    <div id="response"></div>
 </div>
 
 <script>
+function changeText() {
+    const btn = document.getElementById("fakeNo");
+    btn.innerText = "no option for u to say no";
+    btn.style.background = "#ff4d6d"; // Make it look more like a "Yes" button
+}
+
+function resetText() {
+    const btn = document.getElementById("fakeNo");
+    btn.innerText = "NO 😢";
+}
+
 function sayYes() {
-document.getElementById("response").innerText =
-"Yayyy! 💕 It’s officially a YES! 💘";
+    document.getElementById("response").innerText = "Yayyy! 💕 It’s officially a YES! 💘";
 }
 </script>
 
