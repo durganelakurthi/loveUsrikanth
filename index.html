@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Yes or No</title>
+<style>
+body {
+text-align: center;
+font-family: Arial, sans-serif;
+margin-top: 50px;
+}
+img {
+width: 300px;
+border-radius: 10px;
+}
+button {
+padding: 10px 20px;
+margin: 20px 10px;
+font-size: 16px;
+cursor: pointer;
+}
+#result {
+font-size: 20px;
+margin-top: 20px;
+font-weight: bold;
+}
+</style>
+</head>
+<body>
+
+<h2>Do you like this image?</h2>
+
+<!-- Image -->
+<img src="https://via.placeholder.com/300" alt="Sample Image">
+
+<br>
+
+<!-- Buttons -->
+<button onclick="answerYes()">Yes</button>
+<button onclick="answerNo()">No</button>
+
+<!-- Result -->
+<div id="result"></div>
+
+<script>
+function answerYes() {
+document.getElementById("result").innerText = "You clicked YES 😊";
+}
+
+function answerNo() {
+document.getElementById("result").innerText = "You clicked NO 😐";
+}
+</script>
+
+</body>
+</html>
